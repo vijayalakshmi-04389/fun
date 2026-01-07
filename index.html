@@ -1,38 +1,605 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>Happy Birthday Bestie 💖</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
-      text-align: center;
-      color: #fff;
-    }
-    h1 {
-      margin-top: 40px;
-      font-size: 2.5rem;
-    }
-    p {
-      font-size: 1.2rem;
-    }
-    .heart {
-      font-size: 3rem;
-      animation: pulse 1.5s infinite;
-    }
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.3); }
-      100% { transform: scale(1); }
-    }
-  </style>
-</head>
-<body>
-  <h1>🎉 Happy Birthday Bestie 🎉</h1>
-  <p>10 years of friendship & counting 💫</p>
-  <div class="heart">💖</div>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Happy Birthday Bestie 💖🎈🎂</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body class="birthday-bg">
+    <!-- Floating Elements Background -->
+    <div class="floating-hearts"></div>
+    <div class="floating-balloon-hearts"></div>
+
+    <audio id="bgMusic" >
+      <source src="assets/happy-birthday-to-you-made-by-me-100631.mp3" type="audio/mp3" />
+      Your browser does not support the audio element.
+    </audio>
+
+    <!-- STEP 1: COUNTDOWN SECTION -->
+    <section id="countdown" class="active-step birthday-bg">
+      <h2>
+        <span class="rotating-emoji">⏳</span> Countdown to Your Day
+        <span class="rotating-emoji">🎂</span>
+      </h2>
+      <div id="countdownContent">
+        <div id="timer"></div>
+        <div class="timer-subtext">
+          <p>
+            <i
+              class="fas fa-heart heartbeat"
+              style="color: #ff6b8b; margin: 0 5px"
+            ></i>
+            Getting closer to celebrating YOU!
+            <i
+              class="fas fa-heart heartbeat"
+              style="color: #ff6b8b; margin: 0 5px"
+            ></i>
+          </p>
+        </div>
+      </div>
+      <div id="birthdayMessage" class="hidden birthday-bg">
+        <h2 class="celebration-text">
+          <span class="rotating-emoji">🎉</span>
+          Happy Birthday Bestie!
+          <span class="rotating-emoji">🎉</span>
+        </h2>
+
+        <p class="birthday-wish">
+          <i class="fas fa-star" style="color: gold; margin: 0 5px"></i>
+          Wishing you the most amazing day filled with love, laughter, and joy!
+          <i class="fas fa-star" style="color: gold; margin: 0 5px"></i>
+        </p>
+
+        <p class="sub-message">
+          You deserve all the happiness in the world! 🥳✨
+        </p>
+
+        <div class="action-buttons">
+          <button onclick="playMusic()" class="music-btn">
+            <i class="fas fa-music"></i> 🎵 Play Birthday Music
+          </button>
+          <button
+            id="nextToHerPhotos"
+            onclick="nextStep('her-childhood-photos')"
+            class="journey-btn"
+          >
+            <i class="fas fa-road"></i> 🚀 Start Your Birthday Journey
+          </button>
+        </div>
+
+        <div class="birthday-emojis">
+          <span class="emoji">🎂</span>
+          <span class="emoji">🎁</span>
+          <span class="emoji">🎈</span>
+          <span class="emoji">✨</span>
+          <span class="emoji">🥳</span>
+          <span class="emoji">🎊</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- STEP 2: HER CHILDHOOD PHOTOS -->
+    <section id="her-childhood-photos" class="hidden-step">
+      <h2>
+        <i class="fas fa-baby"></i> Childhood Memories
+        <i class="fas fa-star"></i>
+      </h2>
+      <p class="section-subtitle">
+        The adorable beginnings of an amazing person!
+      </p>
+
+      <div class="gallery-container vintage-gallery">
+        <div class="photo-frame vintage" style="--delay: 0s">
+          <img
+            src="assets/WhatsApp Image 2026-01-05 at 8.59.17 PM.jpeg"
+            alt="Little cutie"
+          />
+          <div class="photo-caption">
+            <i class="fas fa-heart"></i> Little cutie 👶
+          </div>
+          <div class="photo-overlay">
+            <div class="overlay-text">So precious!</div>
+          </div>
+        </div>
+
+        <div class="photo-frame vintage" style="--delay: 0.2s">
+          <img
+            src="assets/WhatsApp Image 2026-01-05 at 8.59.18 PM.jpeg"
+            alt="Childhood smile"
+          />
+          <div class="photo-caption">
+            <i class="fas fa-smile"></i> So tiny and sweet 🍼
+          </div>
+          <div class="photo-overlay">
+            <div class="overlay-text">Adorable smile!</div>
+          </div>
+        </div>
+
+        <div class="photo-frame vintage" style="--delay: 0.4s">
+          <img
+            src="assets/WhatsApp Image 2026-01-05 at 8.59.19 PM (1).jpeg"
+            alt="Childhood memory"
+          />
+          <div class="photo-caption">
+            <i class="fas fa-camera"></i> Beautiful child ✨
+          </div>
+          <div class="photo-overlay">
+            <div class="overlay-text">Precious moments!</div>
+          </div>
+        </div>
+
+        <div class="photo-frame vintage" style="--delay: 0.6s">
+          <img
+            src="assets/WhatsApp Image 2026-01-05 at 8.59.20 PM.jpeg"
+            alt="Childhood photo"
+          />
+          <div class="photo-caption">
+            <i class="fas fa-angel"></i> Little angel 👼
+          </div>
+          <div class="photo-overlay">
+            <div class="overlay-text">Pure innocence!</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-quote">
+        <i
+          class="fas fa-quote-left"
+          style="color: #ff6b8b; font-size: 24px"
+        ></i>
+        <p>
+          Every great story has a beautiful beginning. Look how far you've come!
+        </p>
+        <i
+          class="fas fa-quote-right"
+          style="color: #ff6b8b; font-size: 24px"
+        ></i>
+      </div>
+
+      <button
+        id="nextToGrownUpPhotos"
+        onclick="nextStep('her-grownup-photos')"
+        class="next-btn"
+      >
+        <i class="fas fa-arrow-right"></i> See How You've Grown Up
+      </button>
+    </section>
+
+    <!-- STEP 3: HER GROWN-UP PHOTOS -->
+    <section id="her-grownup-photos" class="hidden-step">
+      <h2>
+        <i class="fas fa-crown"></i> The Amazing Girl You've Become
+        <i class="fas fa-gem"></i>
+      </h2>
+      <p class="section-subtitle">From adorable to absolutely incredible!</p>
+
+      <div class="gallery-container modern-gallery">
+        <div class="photo-frame modern-frame" style="--delay: 0s">
+          <img src="assets/IMG_2175.jpg" alt="Beautiful as always" />
+          <div class="photo-caption">
+            <i class="fas fa-sparkles"></i> Beautiful as always ✨
+          </div>
+          <div class="shine-effect"></div>
+        </div>
+
+        <div class="photo-frame modern-frame" style="--delay: 0.4s">
+          <img
+            src="assets/IMG_20260106_220633.png"
+            alt="Stunning & Confident"
+          />
+          <div class="photo-caption">
+            <i class="fas fa-fire"></i> Stunning & Confident 💃
+          </div>
+          <div class="shine-effect"></div>
+        </div>
+
+        <div class="photo-frame modern-frame" style="--delay: 0.8s">
+          <img
+            src="assets/Screenshot_20260106-220510_Instagram~2.jpg"
+            alt="Radiant smile"
+          />
+          <div class="photo-caption">
+            <i class="fas fa-sun"></i> That radiant smile 😊
+          </div>
+          <div class="shine-effect"></div>
+        </div>
+
+        <div class="photo-frame modern-frame" style="--delay: 1.2s">
+          <img src="assets/IMG-20240309-WA0000.jpg" alt="Absolute queen" />
+          <div class="photo-caption">
+            <i class="fas fa-crown"></i> Absolute queen energy 👑
+          </div>
+          <div class="shine-effect"></div>
+        </div>
+
+        <div class="photo-frame modern-frame" style="--delay: 1.6s">
+          <img src="assets/Snapchat-303799134.jpg" alt="Pure elegance" />
+          <div class="photo-caption">
+            <i class="fas fa-star"></i> Pure elegance ✨
+          </div>
+          <div class="shine-effect"></div>
+        </div>
+      </div>
+
+      <div class="transformation-text">
+        <h3><i class="fas fa-chart-line"></i> Glow Up Journey</h3>
+        <p>Look at you now - strong, confident, and absolutely radiant! 🌟</p>
+      </div>
+
+      <button
+        id="nextToOurPhotos"
+        onclick="nextStep('our-photos')"
+        class="next-btn"
+      >
+        <i class="fas fa-heart"></i> See Our Memories Together
+      </button>
+    </section>
+
+    <!-- STEP 4: OUR PHOTOS GALLERY - FIXED VERSION -->
+    <section id="our-photos" class="hidden-step">
+      <h2>
+        <i class="fas fa-users"></i> Our Special Moments
+        <i class="fas fa-heart"></i>
+      </h2>
+      <p class="section-subtitle">Cherished memories that will last forever!</p>
+
+      <div class="collage-container improved-collage">
+        <!-- Row 1 -->
+        <div class="collage-item" style="--delay: 0s">
+          <div class="photo-container">
+            <img
+              src="assets/IMG-20250715-WA0006.jpg"
+              alt="Our first photo"
+              loading="lazy"
+            />
+          </div>
+          <div class="memory-text">
+            <i class="fas fa-heart"></i> Our first photo ❤️
+          </div>
+        </div>
+
+        <div class="collage-item quote-item" style="--delay: 0.2s">
+          <div class="friendship-quote">
+            <i class="fas fa-quote-left"></i>
+            <p>
+              Look at us now, still us… just together. Same laughs, new chapter.
+            </p>
+            <p class="quote-author">Best Friends Forever 💖</p>
+            <i class="fas fa-quote-right"></i>
+          </div>
+        </div>
+
+        <!-- Row 2 -->
+        <div class="collage-item" style="--delay: 0.4s">
+          <div class="photo-container">
+            <img
+              src="assets/IMG-20210712-WA0013.jpg"
+              alt="First hangout"
+              loading="lazy"
+            />
+          </div>
+          <div class="memory-text">
+            <i class="fas fa-laugh"></i> First hangout ❤️
+          </div>
+        </div>
+
+        <div class="collage-item" style="--delay: 0.6s">
+          <div class="photo-container">
+            <img
+              src="assets/IMG_7385.jpg"
+              alt="You made that day"
+              loading="lazy"
+            />
+          </div>
+          <div class="memory-text">
+            <i class="fas fa-sun"></i> You made that day 😄
+          </div>
+        </div>
+
+        <!-- Row 3 - Best duo (PORTRAIT PHOTO) -->
+        <div class="collage-item portrait-photo" style="--delay: 0.8s">
+          <div class="photo-container">
+            <img
+              src="assets/Snapchat-393733531.jpg"
+              alt="Best duo"
+              loading="lazy"
+            />
+          </div>
+          <div class="memory-text">
+            <i class="fas fa-handshake"></i> Best duo 💪
+          </div>
+        </div>
+
+        <!-- Row 4 -->
+        <div class="collage-item wide-item" style="--delay: 1s">
+          <div class="photo-container">
+            <img
+              src="assets/IMG_20251121_154032915_HDR~2.jpg"
+              alt="Forever friends"
+              loading="lazy"
+            />
+          </div>
+          <div class="memory-text">
+            <i class="fas fa-infinity"></i> Forever friends 🌈
+          </div>
+        </div>
+
+        <!-- Row 5 -->
+        <div class="collage-item" style="--delay: 1.2s">
+          <div class="photo-container">
+            <img
+              src="assets/IMG_20250108_122756.jpg"
+              alt="Unbreakable bond"
+              loading="lazy"
+            />
+          </div>
+          <div class="memory-text">
+            <i class="fas fa-link"></i> Unbreakable bond 💖
+          </div>
+        </div>
+      </div>
+
+      <div class="friendship-stats">
+        <div class="stat-item">
+          <div class="stat-number">10+</div>
+          <div class="stat-label">Years of Friendship</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">∞</div>
+          <div class="stat-label">Memories Made</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">100%</div>
+          <div class="stat-label">Real Friendship</div>
+        </div>
+      </div>
+
+      <button
+        id="nextToTimeline"
+        onclick="nextStep('timeline')"
+        class="next-btn"
+      >
+        <i class="fas fa-history"></i> Our Friendship Story Timeline
+      </button>
+    </section>
+
+    <!-- STEP 5: TIMELINE SECTION -->
+    <section id="timeline" class="hidden-step">
+      <h2>
+        <i class="fas fa-book-open"></i> Our Friendship Journey
+        <i class="fas fa-road"></i>
+      </h2>
+      <p class="section-subtitle">
+        A beautiful story that keeps getting better!
+      </p>
+
+      <div class="timeline-container">
+        <div class="timeline-item left" style="--delay: 0s">
+          <div class="timeline-year">
+            <i class="fas fa-calendar-star"></i> 2015
+          </div>
+          <div class="timeline-content">
+            <h3><i class="fas fa-heart-circle-plus"></i> The Beginning ❤️</h3>
+            <p>
+              Where it all started - our first meeting that changed everything!
+            </p>
+            <div class="timeline-emoji">👋</div>
+          </div>
+        </div>
+
+        <div class="timeline-item right" style="--delay: 0.2s">
+          <div class="timeline-year">
+            <i class="fas fa-calendar-star"></i> 2017
+          </div>
+          <div class="timeline-content">
+            <h3><i class="fas fa-face-laugh-beam"></i> Crazy Adventures 😄</h3>
+            <p>
+              All those unforgettable moments, laughter, and growing together!
+            </p>
+            <div class="timeline-emoji">🎢</div>
+          </div>
+        </div>
+
+        <div class="timeline-item left" style="--delay: 0.4s">
+          <div class="timeline-year">
+            <i class="fas fa-calendar-star"></i> 2020
+          </div>
+          <div class="timeline-content">
+            <h3><i class="fas fa-people-group"></i> Always Together 💪</h3>
+            <p>
+              Through thick and thin, challenges and victories, we stuck
+              together!
+            </p>
+            <div class="timeline-emoji">🤝</div>
+          </div>
+        </div>
+
+        <div class="timeline-item right" style="--delay: 0.6s">
+          <div class="timeline-year">
+            <i class="fas fa-calendar-star"></i> 2025
+          </div>
+          <div class="timeline-content">
+            <h3><i class="fas fa-trophy"></i> 10 Years Strong 🎉</h3>
+            <p>
+              A decade of amazing friendship, support, and countless memories!
+            </p>
+            <div class="timeline-emoji">🏆</div>
+          </div>
+        </div>
+
+        <div class="timeline-item left future" style="--delay: 0.8s">
+          <div class="timeline-year">
+            <i class="fas fa-calendar-star"></i> Future
+          </div>
+          <div class="timeline-content">
+            <h3><i class="fas fa-infinity"></i> Many More Years 🌈</h3>
+            <p>
+              Endless adventures and memories waiting to be created together!
+            </p>
+            <div class="timeline-emoji">🚀</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-quote">
+        <p>
+          <i class="fas fa-heart" style="color: #ff6b8b"></i>
+          Good friends are like stars. You don't always see them, but you know
+          they're always there.
+          <i class="fas fa-heart" style="color: #ff6b8b"></i>
+        </p>
+      </div>
+
+      <button id="nextToLetter" onclick="nextStep('letter')" class="next-btn">
+        <i class="fas fa-envelope"></i> Read My Heartfelt Letter
+      </button>
+    </section>
+
+    <!-- STEP 6: LETTER SECTION -->
+    <section id="letter" class="hidden-step">
+      <h2>
+        <i class="fas fa-heart"></i> My Heartfelt Letter
+        <i class="fas fa-feather"></i>
+      </h2>
+      <p class="section-subtitle">Words from my heart to yours</p>
+
+      <div class="letter-container">
+        <div class="envelope" onclick="openEnvelope()">
+          <div class="envelope-flap">
+            <div class="seal">
+              <i class="fas fa-heart"></i>
+            </div>
+          </div>
+          <div class="envelope-body">
+            <div class="letter-content" id="letterContent">
+              <div class="letter-header">
+                <h3>To My Dearest Bestie,</h3>
+                <div class="letter-date">On Your Special Day 💝</div>
+              </div>
+
+              <div class="letter-body">
+                <p>
+                  <i
+                    class="fas fa-heart"
+                    style="color: #ff6b8b; margin-right: 10px"
+                  ></i>
+                  On this special day, I want to tell you how much you mean to
+                  me. You're not just a friend, you're family.
+                </p>
+
+                <p>
+                  <i
+                    class="fas fa-star"
+                    style="color: gold; margin-right: 10px"
+                  ></i>
+                  You are the most amazing person anyone could ask for. Through
+                  all the laughter, tears, adventures, and quiet moments, you've
+                  been my constant, my support.
+                </p>
+
+                <p>
+                  <i
+                    class="fas fa-sun"
+                    style="color: #ffb84d; margin-right: 10px"
+                  ></i>
+                  Thank you for being you - for your kindness, your strength,
+                  your humor, and your beautiful heart. Thank you for all the
+                  memories we've created and for all the ones yet to come!
+                </p>
+
+                <p>
+                  <i
+                    class="fas fa-gem"
+                    style="color: #b84dff; margin-right: 10px"
+                  ></i>
+                  You deserve every bit of happiness, success, and love that
+                  comes your way. May this year bring you all your heart desires
+                  and so much more!
+  </br>
+                  Tuba english aythu , but nija helbeku andre yavgalu nin nan pakka erthiyo ,eralavoo
+                  adre nin support , love yavgalu kotiya .E tar yetsu  janake friend sigtharo gothilla
+                  but nin nange sikidu nange tuba kushi . Ondhu moral support beku andaga yalla time nalli ninu
+                  nan jote ediya ,nan life long kuda ninge erthiya antha tuba nambithini. As a best friend nange
+                  yen beko yalla kotiya ade tar devaru ninge yalla nin kelidu kodli yalla means atra 
+                  aytha.Nin bday yen kodabeku antha yochane madtha ede, mte 10 years kuda aythu means
+                  decade of constant friendship so edu nan kalli nalli agidu . Esta aytha? amale nija 
+                  helu sari na.
+                  
+                  Tuba ede but e moment esta helidini . Thank you for being my best friend.
+                </p>
+              </div>
+
+              <div class="letter-footer">
+                <p class="signature">With all my love,</p>
+                <p class="signature-name">Your Best Friend Forever ❤️</p>
+                <div class="signature-emoji">✨🎂🎉</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="letter-instruction">
+          <p>
+            <i class="fas fa-mouse-pointer"></i> Click the envelope to open the
+            letter
+          </p>
+        </div>
+      </div>
+
+      <button
+        id="nextToSurprise"
+        onclick="nextStep('surprise')"
+        class="next-btn"
+      >
+        <i class="fas fa-gift"></i> Your Final Surprise Awaits!
+      </button>
+    </section>
+
+    <!-- STEP 7: SURPRISE SECTION -->
+    <section id="surprise" class="hidden-step">
+     
+
+      <div class="surprise-container">
+        <div class="gift-box" onclick="revealSurprise()">
+          <div class="gift-lid">
+            <div class="ribbon">
+              <div class="ribbon-vertical"></div>
+              <div class="ribbon-horizontal"></div>
+            </div>
+            <div class="bow">
+              <div class="bow-center"></div>
+              <div class="bow-loop loop-left"></div>
+              <div class="bow-loop loop-right"></div>
+            </div>
+          </div>
+          <div class="gift-body">
+            <div class="ribbon-wrap">
+              <div class="ribbon-vertical"></div>
+              <div class="ribbon-horizontal"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="final-message">
+        <h3><i class="fas fa-champagne-glasses"></i> Let's Celebrate Your Birthday!</h3>
+        <p>Ninge yen beku kelo if i can i will get you one day!</p>
+      </div>
+      </div>
+
+      <div class="final-wishes">
+        <p>Happy Birthday once again, my amazing bestie! 🎂✨</p>
+        <div class="final-emojis">🥳🎊🎈🎁💝🎀🎉🌟💖</div>
+      </div>
+    </section>
+
+    <div id="confetti"></div>
+
+    <script src="script.js"></script>
+  </body>
 </html>
