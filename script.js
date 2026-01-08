@@ -1,4 +1,4 @@
-const birthday = new Date("2026-01-09T00:00:00");
+const birthday = new Date("2026-01-09T18:34:00");
 const timerDisplay = document.getElementById("timer");
 const countdownContent = document.getElementById("countdownContent");
 const birthdayMessage = document.getElementById("birthdayMessage");
